@@ -98,6 +98,10 @@ public class ListData extends AppCompatActivity {
                                 modelku.setStrTeam(jsonObject.getString("strTeam"));
                                 modelku.setStrTeamLogo(jsonObject.getString("strTeamBadge"));
                                 modelku.setIntFormedYear(jsonObject.getInt("intFormedYear"));
+                                modelku.setStrDescriptionEN(jsonObject.getString("strDescriptionEN"));
+                                modelku.setStrCountry(jsonObject.getString("strCountry"));
+                                modelku.setStrStadium(jsonObject.getString("strStadium"));
+
 
                                 DataArrayList.add(modelku);
                             }
@@ -110,7 +114,11 @@ public class ListData extends AppCompatActivity {
                                     intent.putExtra("id", football.idTeam);
                                     intent.putExtra("judul", football.strTeam);
                                     intent.putExtra("path", football.strTeamLogo);
+                                    intent.putExtra("description", football.strDescriptionEN);
                                     intent.putExtra("date", football.intFormedYear);
+                                    intent.putExtra("country", football.strCountry);
+                                    intent.putExtra("stadium", football.strStadium);
+
                                     startActivity(intent);
                                     Toast.makeText(ListData.this, "" + position, Toast.LENGTH_SHORT).show();
 
