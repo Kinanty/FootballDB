@@ -36,7 +36,7 @@ public class Model {
     public int getIntFormedYear(){
         return intFormedYear;
     }
-    public void setIntFormedYear(String strTeam) {
+    public void setIntFormedYear(int intFormedYear) {
         this.intFormedYear = intFormedYear;
     }
     public String getStrCountry(){

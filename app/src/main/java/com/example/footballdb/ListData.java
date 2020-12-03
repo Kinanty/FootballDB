@@ -48,7 +48,7 @@ public class ListData extends AppCompatActivity {
         data1.setIdTeam("133604");
         data1.setStrTeam("Arsenal");
         data1.setStrTeamLogo("https:\\/\\/www.thesportsdb.com\\/images\\/media\\/team\\/logo\\/q2mxlz1512644512.png");
-        data1.setIntFormedYear("1892");
+        data1.setIntFormedYear(1892);
         DataArrayList.add(data1);
 
 
@@ -97,7 +97,7 @@ public class ListData extends AppCompatActivity {
                                 modelku.setIdTeam(jsonObject.getString("idTeam"));
                                 modelku.setStrTeam(jsonObject.getString("strTeam"));
                                 modelku.setStrTeamLogo(jsonObject.getString("strTeamBadge"));
-                                modelku.setIntFormedYear(jsonObject.getString("intFormedYear"));
+                                modelku.setIntFormedYear(jsonObject.getInt("intFormedYear"));
 
                                 DataArrayList.add(modelku);
                             }
