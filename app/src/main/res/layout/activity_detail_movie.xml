@@ -35,6 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="50dp">
             <TextView
                 android:id="@+id/tvDeskripsi"
@@ -113,6 +115,7 @@
             android:text="Favourite"
             android:textColor="@android:color/white"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center"
             android:paddingLeft="17dp"
             android:paddingRight="17dp"
