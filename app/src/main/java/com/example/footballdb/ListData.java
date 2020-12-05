@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +25,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ListData extends AppCompatActivity {
+    TextView tvNoData;
     ProgressDialog progressdialog;
-    private RecyclerView recyclerView;
-    private DataAdapter adapter;
-    private ArrayList<Model> DataArrayList; //kit add kan ke adapter
-    private ImageView tambah_data;
+    RecyclerView recyclerView;
+    DataAdapter adapter;
+    ArrayList<Model> DataArrayList; //kit add kan ke adapter
+    ImageView tambah_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,9 @@ public class ListData extends AppCompatActivity {
         setContentView(R.layout.activity_list_data);
         progressdialog = new ProgressDialog(ListData.this);
         recyclerView = (RecyclerView) findViewById(R.id.rvdata);
+        tvNoData = (TextView) findViewById(R.id.tvNoData);
+        tvNoData.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
         //addData();
         addDataOnline();
     }
@@ -130,12 +136,15 @@ public class ListData extends AppCompatActivity {
                             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListData.this);
                             recyclerView.setLayoutManager(layoutManager);
                             recyclerView.setAdapter(adapter);
-                            progressdialog.dismiss();
+                            if (progressdialog.isShowing()) {
+                                progressdialog.dismiss();
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            progressdialog.dismiss();
-
+                            if (progressdialog.isShowing()) {
+                                progressdialog.dismiss();
+                            }
                         }
 
 
