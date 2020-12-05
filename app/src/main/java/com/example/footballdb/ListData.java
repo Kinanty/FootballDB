@@ -1,15 +1,15 @@
 package com.example.footballdb;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -21,8 +21,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import android.os.Bundle;
 
 public class ListData extends AppCompatActivity {
     ProgressDialog progressdialog;
@@ -41,36 +39,36 @@ public class ListData extends AppCompatActivity {
         addDataOnline();
     }
 
-    void addData() {
-        //offline, isi data offline dulu
-        DataArrayList = new ArrayList<>();
-        Model data1 = new Model();
-        data1.setIdTeam("133604");
-        data1.setStrTeam("Arsenal");
-        data1.setStrTeamLogo("https:\\/\\/www.thesportsdb.com\\/images\\/media\\/team\\/logo\\/q2mxlz1512644512.png");
-        data1.setIntFormedYear(1892);
-        DataArrayList.add(data1);
-
-
-        adapter = new DataAdapter(DataArrayList, new DataAdapter.Callback() {
-            @Override
-            public void onClick(int position) {
-
-            }
-
-            @Override
-            public void test() {
-
-            }
-        });
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListData.this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
-        //get data online
-
-
-    }
+//    void addData() {
+//        //offline, isi data offline dulu
+//        DataArrayList = new ArrayList<>();
+//        Model data1 = new Model();
+//        data1.setIdTeam("133604");
+//        data1.setStrTeam("Arsenal");
+//        data1.setStrTeamLogo("https:\\/\\/www.thesportsdb.com\\/images\\/media\\/team\\/logo\\/q2mxlz1512644512.png");
+//        data1.setIntFormedYear(1892);
+//        DataArrayList.add(data1);
+//
+//
+//        adapter = new DataAdapter(DataArrayList, new DataAdapter.Callback() {
+//            @Override
+//            public void onClick(int position) {
+//
+//            }
+//
+//            @Override
+//            public void test() {
+//
+//            }
+//        });
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListData.this);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(adapter);
+//
+//        //get data online
+//
+//
+//    }
 
     void addDataOnline() {
         progressdialog.setMessage("Loading...");
@@ -94,7 +92,7 @@ public class ListData extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 modelku = new Model();
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                modelku.setIdTeam(jsonObject.getString("idTeam"));
+                                modelku.setIdTeam(jsonObject.getInt("idTeam"));
                                 modelku.setStrTeam(jsonObject.getString("strTeam"));
                                 modelku.setStrTeamLogo(jsonObject.getString("strTeamBadge"));
                                 modelku.setIntFormedYear(jsonObject.getInt("intFormedYear"));

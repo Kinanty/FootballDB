@@ -3,7 +3,7 @@ package com.example.footballdb;
 public class Model {
     String strTeam;
     String strTeamLogo;
-    String idTeam;
+    int idTeam;
     String strDescriptionEN;
     int intFormedYear;
     String strCountry;
@@ -21,10 +21,10 @@ public class Model {
     public void setStrTeamLogo(String strTeamLogo) {
         this.strTeamLogo = strTeamLogo;
     }
-    public String getIdTeam(){
+    public int getIdTeam(){
         return idTeam;
     }
-    public void setIdTeam(String idTeam) {
+    public void setIdTeam(int idTeam) {
         this.idTeam = idTeam;
     }
     public String getStrDescriptionEN(){
