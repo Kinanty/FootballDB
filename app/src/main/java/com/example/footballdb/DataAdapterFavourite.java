@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavourite.DatakuViewHolder> {
-    private ArrayList<ModelFootballRealm> dataList;
+    private List<ModelFootballRealm> dataList;
     private Callback callback;
     View viewku;
     int posku;
@@ -29,7 +29,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
         void onClick(int position);
         void test();
     }
-    public DataAdapterFavourite(ArrayList<ModelFootballRealm> dataList, Callback callback) {
+    public DataAdapterFavourite(List<ModelFootballRealm> dataList, Callback callback) {
         this.callback = callback;
         this.dataList = dataList;
         Log.d("makanan", "MahasiswaAdapter: "+dataList.size()+"");
