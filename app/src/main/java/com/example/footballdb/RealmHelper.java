@@ -37,9 +37,18 @@ public class RealmHelper {
         });
     }
     // untuk memanggil semua data
-    public List<ModelFootballRealm> getAllMahasiswa(){
+    public List<ModelFootballRealm> getAllFootball(){
         RealmResults<ModelFootballRealm> results = realm.where(ModelFootballRealm.class).findAll();
         return results;
+    }
+    public void delete(Integer id){
+        final RealmResults<ModelFootballRealm> model = realm.where(ModelFootballRealm.class).equalTo("id", id).findAll();
+        realm.executeTransaction(new Realm.Transaction(){
+            @Override
+            public void execute(Realm realm) {
+                model.deleteFromRealm(0);
+            }
+        });
     }
 
 }

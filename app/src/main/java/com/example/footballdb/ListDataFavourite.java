@@ -1,7 +1,7 @@
 package com.example.footballdb;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,7 +20,6 @@ public class ListDataFavourite extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DataAdapterFavourite adapter;
     private List<ModelFootballRealm> DataArrayList; //kit add kan ke adapter
-    private ImageView tambah_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +31,20 @@ public class ListDataFavourite extends AppCompatActivity {
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         realm = Realm.getInstance(configuration);
         realmHelper = new RealmHelper(realm);
-        DataArrayList = realmHelper.getAllMahasiswa();
+        DataArrayList = realmHelper.getAllFootball();
         adapter = new DataAdapterFavourite(DataArrayList, new DataAdapterFavourite.Callback() {
             @Override
             public void onClick(int position) {
-
+                //Intent ke detail movie
+                Intent move = new Intent(getApplicationContext(), DetailFavourite.class);
+                move.putExtra("id",DataArrayList.get(position).getId());
+                move.putExtra("judul",DataArrayList.get(position).getJudul());
+                move.putExtra("path",DataArrayList.get(position).getPoster());
+                move.putExtra("description",DataArrayList.get(position).getDesc());
+                move.putExtra("date",DataArrayList.get(position).getFormedYear());
+                move.putExtra("country",DataArrayList.get(position).getCountry());
+                move.putExtra("stadium",DataArrayList.get(position).getStadium());
+                startActivity(move);
             }
 
             @Override
